@@ -28,8 +28,10 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'react', 'prettier'],
   rules: {
+    'arrow-body-style': 'off',
     'react/react-in-jsx-scope': 'off',
     'no-console': 'off',
+    'react/function-component-definition': 'off',
   },
   ignorePatterns: ['vite.config.ts', 'postcss.config.js', 'tailwind.config.js'],
 };
