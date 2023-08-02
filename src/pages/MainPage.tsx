@@ -4,6 +4,9 @@ const MainPage = () => {
   return (
     <div>
       <Header />
+      <div>내용</div>
+      <div>내용</div>
+      <div>내용</div>
     </div>
   );
 };
