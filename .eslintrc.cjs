@@ -8,6 +8,7 @@ module.exports = {
     'airbnb-typescript',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
   ],
   overrides: [
     {
@@ -28,6 +29,8 @@ module.exports = {
   },
   plugins: ['@typescript-eslint', 'react', 'prettier'],
   rules: {
+    'prettier/prettier': 'error',
+    'import/prefer-default-export': 'off',
     'arrow-body-style': 'off',
     'react/react-in-jsx-scope': 'off',
     'no-console': 'off',
