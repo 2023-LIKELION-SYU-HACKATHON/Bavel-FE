@@ -4,9 +4,9 @@ export default {
   theme: {
     extend: {},
     colors: {
-      'bavel-orange': 'FF7A00',
-      'bavel-gray-light': 'F5F5F5',
-      'bavel-gray-deep': '606060',
+      'bavel-orange': '#FF7A00',
+      'bavel-gray-light': '#F5F5F5',
+      'bavel-gray-deep': '#606060',
     },
   },
   plugins: [require('daisyui')],
