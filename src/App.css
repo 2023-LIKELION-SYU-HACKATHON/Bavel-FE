@@ -6,3 +6,8 @@
 * {
   font-family: 'Noto Sans KR', sans-serif;
 }
+
+/* ( 크롬, 사파리, 오페라, 엣지 ) 스크롤 없애기 */
+::-webkit-scrollbar {
+  display: none;
+}

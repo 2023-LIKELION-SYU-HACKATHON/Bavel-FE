@@ -1,6 +1,7 @@
-import Logo from '@features/ui/logo/Logo';
-import Header from '@features/ui/header/Header';
-import SearchBar from '@features/ui/searchBar/SearchBar';
+import Logo from './logo/Logo';
+import Header from './header/Header';
+import SearchBar from './searchBar/SearchBar';
 import UserIcon from './userIcon/UserIcon';
+import Footer from './footer/Footer';
 
-export { Header, Logo, SearchBar, UserIcon };
+export { Footer, Header, Logo, SearchBar, UserIcon };
