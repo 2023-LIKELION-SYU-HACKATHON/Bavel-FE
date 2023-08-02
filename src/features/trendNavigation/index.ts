@@ -1,3 +1,3 @@
-import TrandNavigation from './TrandNavigation';
+import TrendNavigation from './TrendNavigation';
 
-export { TrandNavigation };
+export { TrendNavigation };

@@ -1,12 +1,12 @@
 import { Header, Footer } from '@features/ui';
-import { TrandNavigation } from '@features/trendNavigation';
+import { TrendNavigation } from '@features/trendNavigation';
 import { NewPostButton } from '@features/newPostButton';
 
 const MainPage = () => {
   return (
     <div>
       <Header />
-      <TrandNavigation />
+      <TrendNavigation />
       <section>
         <div className="h-screen">내용1</div>
         <div className="h-screen">내용2</div>
