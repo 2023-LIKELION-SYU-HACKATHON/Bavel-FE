@@ -10,7 +10,7 @@ export default {
       ...colors,
       'bavel-orange': '#FF7A00',
       'bavel-gray-light': '#F5F5F5',
-      'bavel-gray-deep': '#606060',
+      'bavel-gray-dark': '#606060',
       'bavel-apricot': '#FFDDBE',
     },
   },
