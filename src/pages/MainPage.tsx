@@ -1,6 +1,5 @@
-import { Header, Footer } from '@features/ui';
-import { TrendNavigation } from '@features/trendNavigation';
-import { NewPostButton } from '@features/newPostButton';
+import { Header, Footer } from '@/ui';
+import { NewPostButton, TrendNavigation } from '@features';
 
 const MainPage = () => {
   return (
