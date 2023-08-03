@@ -22,7 +22,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@features/*": ["src/features/*"]
+      "@features/*": ["src/features/*"],
+      "@features": ["src/features"]
     }
   },
   "include": [".eslintrc.cjs", "src"],

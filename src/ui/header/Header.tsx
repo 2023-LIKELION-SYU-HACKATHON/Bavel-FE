@@ -1,4 +1,4 @@
-import { Logo, SearchBar, UserIcon } from '@features/ui';
+import { Logo, SearchBar, UserIcon } from '@/ui';
 
 const Header = () => {
   return (
