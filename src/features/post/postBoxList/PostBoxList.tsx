@@ -8,10 +8,10 @@ const PostBoxList = () => {
     }
   
   return <>
-  <PostBox title={dummyData.title} content={dummyData.content} />
-  <PostBox title={dummyData.title} content={dummyData.content} />
-  <PostBox title={dummyData.title} content={dummyData.content} />
-  {/* 여기에 map 적용 */}
+    <PostBox title={dummyData.title} content={dummyData.content} />
+    <PostBox title={dummyData.title} content={dummyData.content} />
+    <PostBox title={dummyData.title} content={dummyData.content} />
+    {/* 여기에 map 적용 */}
   </>
 }
 

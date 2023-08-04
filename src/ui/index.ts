@@ -3,6 +3,6 @@ import Header from './header/Header';
 import SearchBar from './searchBar/SearchBar';
 import UserIcon from './user/userIcon/UserIcon';
 import Footer from './footer/Footer';
-import Profile from './profile/Profile';
+import PostUserInfo from '../features/post/postBox/PostUserInfo';
 
-export { Footer, Header, Logo, SearchBar, UserIcon, Profile };
+export { Footer, Header, Logo, SearchBar, UserIcon, PostUserInfo };
