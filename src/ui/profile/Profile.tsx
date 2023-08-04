@@ -1,9 +1,11 @@
 import { FollowButton } from "@/features/followButton";
 import { UserIcon } from "..";
-import UserId from "../userId/UserId";
-import UserCountry from "../userCountry/UserCountry";
+import UserCountry from "../user/userCountry/UserCountry";
+import UserId from "../user/userId/UserId";
+
 
 const Profile = () => {
+  const isFollowingButtonVisible = true;
   return (
     <div className="flex items-center gap-4 px-5 pt-5 pb-3">
       <div className="ml-4">
@@ -14,7 +16,7 @@ const Profile = () => {
         <UserCountry country={"대한민국 Republic Of Korea 🇰🇷"} />
       </div>
       <div className="ml-auto mr-4">
-        <FollowButton title="팔로우" showButton={true} />
+        {isFollowingButtonVisible && <FollowButton title="팔로우"/>}
       </div>
     </div>
   );
