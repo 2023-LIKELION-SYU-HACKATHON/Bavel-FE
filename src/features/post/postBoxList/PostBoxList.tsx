@@ -1,4 +1,5 @@
-import PostBox from "../postBox/PostBox";
+import { PostBox } from "@/features/post";
+
 
 const PostBoxList = () => {
     const dummyData = {

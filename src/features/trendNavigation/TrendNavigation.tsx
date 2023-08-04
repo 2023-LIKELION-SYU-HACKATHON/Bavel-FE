@@ -1,4 +1,4 @@
-import TrendButton from './TrendButton';
+import TrendButton from "./TrendButton";
 
 const TrendNavigation = () => {
   const trends = ['실시간 인기', '연예', '정치', '경제', '스포츠', 'IT・기술'];

@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface PostStatProps {
   iconComponent: React.ReactNode;
   stat?: number;

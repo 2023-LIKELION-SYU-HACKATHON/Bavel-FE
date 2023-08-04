@@ -1,7 +1,6 @@
-import PostContent from "@/features/post/postBox/PostContent"
-import PostTitle from "@/features/post/postBox/PostTitle"
-import Profile from "@/ui/profile/Profile"
-import PostStatList from "./PostStatList"
+import { Profile } from "@/ui";
+import { PostContent, PostStatList, PostTitle } from "@/features/post";
+
 
 interface PostBoxProps {
     title: string,
