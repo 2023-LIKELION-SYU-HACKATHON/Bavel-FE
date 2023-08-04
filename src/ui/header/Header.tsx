@@ -3,7 +3,7 @@ import { Logo, SearchBar, UserIcon } from '@/ui';
 const Header = () => {
   return (
     <>
-      <header className="fixed flex items-center justify-between w-screen h-20 gap-4 p-4 bg-white">
+      <header className="fixed flex items-center justify-between w-screen h-20 gap-4 p-4 z-50 bg-white">
         <Logo />
         <SearchBar />
         <UserIcon />
