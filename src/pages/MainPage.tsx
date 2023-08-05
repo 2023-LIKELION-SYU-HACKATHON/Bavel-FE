@@ -7,9 +7,7 @@ const MainPage = () => {
     <div>
       <Header />
       <TrendNavigation />
-      <section className="bg-white">
-        <PostBoxList />
-      </section>
+      <PostBoxList />
       <NewPostButton />
       <Footer />
     </div>

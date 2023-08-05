@@ -3,7 +3,7 @@ import { UserCountry, UserId } from '@/ui/user';
 
 const PostUserInfo = () => {
   return (
-    <div className="flex flex-row items-center gap-3">
+    <div className="flex flex-row items-center pl-5 pt-5 pb-3 gap-4">
       <div className="ml-4">
         <UserIcon />
       </div>

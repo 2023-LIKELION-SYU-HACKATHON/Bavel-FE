@@ -19,13 +19,13 @@ const PostBoxList = () => {
   ];
 
   return (
-    <>
+    <div className="bg-white">
       {dummyData.map((data, index) => (
         <div key={index} className="border-b border-gray-300">
           <PostBox title={data.title} content={data.content} />
         </div>
       ))}
-    </>
+    </div>
   );
 };
 
