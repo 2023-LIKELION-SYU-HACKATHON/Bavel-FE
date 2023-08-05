@@ -1,5 +1,10 @@
-import { FollowButton } from "@/features/followButton";
-import { PostContent, PostStatList, PostTitle, PostUserInfo } from "@/features/post";
+import { FollowButton } from '@/features/followButton';
+import {
+  PostContent,
+  PostStatList,
+  PostTitle,
+  PostUserInfo,
+} from '@/features/post';
 
 interface PostBoxProps {
   title: string;
@@ -11,7 +16,7 @@ const isFollowingButtonVisible = true;
 
 const PostBox = ({ title, content }: PostBoxProps) => {
   return (
-    <div className="border-b border-gray-300">
+    <div>
       <div className="flex items-center gap-4 px-5 pt-5 pb-3">
         <PostUserInfo />
         <div className="ml-auto">

@@ -1,5 +1,5 @@
-import { UserIcon } from "@/ui";
-import { UserCountry, UserId } from "@/ui/user";
+import { UserIcon } from '@/ui';
+import { UserCountry, UserId } from '@/ui/user';
 
 const PostUserInfo = () => {
   return (
@@ -9,7 +9,7 @@ const PostUserInfo = () => {
       </div>
       <div className="flex flex-col p-2">
         <UserId nickname="닉네임" userHandle="@nickname" />
-        <UserCountry country={"대한민국 Republic Of Korea 🇰🇷"} />
+        <UserCountry country={'대한민국 Republic Of Korea 🇰🇷'} />
       </div>
     </div>
   );

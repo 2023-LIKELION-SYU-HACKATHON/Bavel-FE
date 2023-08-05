@@ -1,4 +1,5 @@
 import { Logo, SearchBar, UserIcon } from '@/ui';
+import OrangeBar from './OrangeBar';
 
 const Header = () => {
   return (
@@ -10,6 +11,7 @@ const Header = () => {
       </header>
       {/* 공간 가려짐 해결을 위한 Spacer */}
       <div className="h-20" />
+      <OrangeBar />
     </>
   );
 };

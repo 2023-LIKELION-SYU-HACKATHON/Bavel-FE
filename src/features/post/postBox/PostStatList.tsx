@@ -9,8 +9,6 @@ const PostStatList = () => {
     views: 890,
   };
 
-  const handleShare = () => {};
-  
   return (
     <div className="flex justify-between mx-7 mb-5">
       <PostStat iconComponent={<FiThumbsUp />} stat={dummyPostStat.likes} />
@@ -19,7 +17,7 @@ const PostStatList = () => {
         stat={dummyPostStat.comments}
       />
       <PostStat iconComponent={<FaRegEye />} stat={dummyPostStat.views} />
-      <PostStat iconComponent={<FiShare />}/>
+      <PostStat iconComponent={<FiShare />} />
     </div>
   );
 };
