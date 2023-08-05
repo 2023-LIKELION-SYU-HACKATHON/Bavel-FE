@@ -1,5 +1,3 @@
-import React, { useState } from 'react';
-import SummaryTitle from './SummaryTitle';
 import SummaryContent from './SummaryContent';
 
 interface SummaryBoxProps {
