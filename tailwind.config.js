@@ -9,7 +9,6 @@ export default {
     colors: {
       ...colors,
       'bavel-orange': '#FF7A00',
-      'bavel-orang-light': '#FFDDBE',
       'bavel-gray-light': '#F5F5F5',
       'bavel-gray-dark': '#606060',
       'bavel-apricot': '#FFDDBE',
