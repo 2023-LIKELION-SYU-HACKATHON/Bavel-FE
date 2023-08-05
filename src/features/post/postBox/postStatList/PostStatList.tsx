@@ -10,7 +10,7 @@ const PostStatList = () => {
   };
 
   return (
-    <div className="flex justify-between mx-7 mb-5">
+    <div className="flex justify-between px-4">
       <PostStat iconComponent={<FiThumbsUp />} stat={dummyPostStat.likes} />
       <PostStat
         iconComponent={<FaRegComment />}

@@ -1,13 +1,11 @@
-import { Header, TitleInput, ContentInput } from '@/ui';
+import { Layout } from '@/ui';
+import { NewPost } from '@/features';
 
 const WritePost = () => {
   return (
-    <div className="bg-white h-screen">
-      <Header />
-      {/* <PostUserInfo /> */}
-      <TitleInput />
-      <ContentInput />
-    </div>
+    <Layout>
+      <NewPost />
+    </Layout>
   );
 };
 
