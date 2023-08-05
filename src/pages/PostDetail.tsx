@@ -1,5 +1,5 @@
 import { PostBox } from '@/features/post';
-import { Footer, Header } from '@/ui';
+import { Layout } from '@/ui';
 
 const dummyPost = {
   title: '세부 글 페이지입니다.',
@@ -9,14 +9,9 @@ const dummyPost = {
 
 const PostDetail = () => {
   return (
-    <div>
-      <Header />
-      <div className="bg-white h-screen">
-        <PostBox title={dummyPost.title} content={dummyPost.content} />
-        {/* 댓글박스 */}
-      </div>
-      <Footer />
-    </div>
+    <Layout>
+      <PostBox title={dummyPost.title} content={dummyPost.content} />
+    </Layout>
   );
 };
 

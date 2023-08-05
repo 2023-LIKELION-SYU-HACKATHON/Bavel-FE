@@ -5,7 +5,7 @@ interface PostStatProps {
 
 const PostStat = ({ iconComponent, stat }: PostStatProps) => {
   return (
-    <div className="flex flex-row items-center px-5 gap-2">
+    <div className="flex flex-row items-center gap-2">
       {iconComponent}
       {stat && <span>{stat}</span>}
     </div>

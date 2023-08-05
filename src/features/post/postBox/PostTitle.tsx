@@ -3,7 +3,7 @@ interface PostTitleProps {
 }
 
 const PostTitle = ({ title }: PostTitleProps) => {
-  return <div className="m-2 ml-7 text-lg font-medium text-black">{title}</div>;
+  return <div className="text-lg font-medium text-black">{title}</div>;
 };
 
 export default PostTitle;

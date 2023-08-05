@@ -1,16 +1,14 @@
-import { NewPostButton, TrendNavigation } from '@/features';
+import { TrendNavigation, NewPostButton } from '@/features/main';
 import { PostBoxList } from '@/features/post';
-import { Footer, Header } from '@/ui';
+import { Layout } from '@/ui';
 
 const MainPage = () => {
   return (
-    <div>
-      <Header />
+    <Layout>
       <TrendNavigation />
       <PostBoxList />
       <NewPostButton />
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 
