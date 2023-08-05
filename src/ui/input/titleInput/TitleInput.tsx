@@ -1,4 +1,4 @@
-const InputTitleBox = () => {
+const TitleInput = () => {
   return (
     <div className="px-7">
       <input
@@ -10,4 +10,4 @@ const InputTitleBox = () => {
   );
 };
 
-export default InputTitleBox;
+export default TitleInput;

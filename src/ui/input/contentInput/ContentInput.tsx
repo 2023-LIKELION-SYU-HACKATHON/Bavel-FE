@@ -1,4 +1,4 @@
-const InputContentBox = () => {
+const ContentInput = () => {
   return (
     <div className="px-7 pt-3 h-1/2">
       <textarea
@@ -9,4 +9,4 @@ const InputContentBox = () => {
   );
 };
 
-export default InputContentBox;
+export default ContentInput;

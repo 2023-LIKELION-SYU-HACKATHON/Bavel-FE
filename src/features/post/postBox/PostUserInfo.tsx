@@ -1,5 +1,4 @@
-import { UserIcon } from '@/ui';
-import { UserCountry, UserId } from '@/ui/user';
+import { UserCountry, UserId, UserIcon } from '@/ui';
 
 const PostUserInfo = () => {
   return (

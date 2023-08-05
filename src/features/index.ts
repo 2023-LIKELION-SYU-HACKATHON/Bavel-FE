@@ -1,4 +1,3 @@
-import { NewPostButton } from './newPostButton';
-import { TrendNavigation } from './trendNavigation';
-
-export { NewPostButton, TrendNavigation };
+export * from './main';
+export * from './post';
+export * from './followButton';
