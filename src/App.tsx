@@ -4,12 +4,6 @@ import MainPage from './pages/MainPage';
 import PostDetail from './pages/PostDetail';
 import WritePost from './pages/WritePost';
 
-// msw Mock 서버를 실행합니다.
-if (process.env.NODE_ENV === 'development') {
-  const { worker } = require('./mocks/browser');
-  worker.start();
-}
-
 function App() {
   return (
     <Routes>
