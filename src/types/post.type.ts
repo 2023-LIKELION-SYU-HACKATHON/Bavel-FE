@@ -3,6 +3,11 @@ import { User } from './user.type';
 // 실시간 인기 , 연예, 경제, 스포츠, IT기술
 type Category = 'hot' | 'entertainments' | 'economy' | 'sports' | 'tech';
 
+export interface PostPage {
+  pageId: number;
+  hasNext: boolean;
+  posts: Post[];
+}
 // 게시글
 export interface Post {
   id: number;

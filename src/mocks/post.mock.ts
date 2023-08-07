@@ -1,4 +1,4 @@
-import { Post } from '@/types/post.type';
+import { Post, PostPage } from '@/types/post.type';
 import { dummyUser1, dummyUser2, dummyUser3 } from './user.mock';
 
 export const dummyPosts: Post[] = [
@@ -258,3 +258,21 @@ export const dummyPosts: Post[] = [
     category: 'tech',
   },
 ];
+
+export const dummyPage1: PostPage = {
+  pageId: 0,
+  hasNext: true,
+  posts: dummyPosts,
+};
+
+export const dummyPage2: PostPage = {
+  pageId: 1,
+  hasNext: true,
+  posts: dummyPosts,
+};
+
+export const dummyPage3: PostPage = {
+  pageId: 2,
+  hasNext: false,
+  posts: dummyPosts,
+};
