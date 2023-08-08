@@ -4,6 +4,7 @@ import { useInfiniteQuery } from 'react-query';
 import { PostPage } from '@/types/post.type';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const PostBoxList = () => {
   const { ref, inView } = useInView();
@@ -33,9 +34,9 @@ const PostBoxList = () => {
     <div className="bg-white">
       {postPage?.pages.map(page =>
         page.posts.map((post, index) => (
-          <div key={index} className="border-b border-gray-300">
+          <Link to={`/post/${post.id}`} key={index}>
             <PostBox {...post} />
-          </div>
+          </Link>
         )),
       )}
       <div ref={ref} />

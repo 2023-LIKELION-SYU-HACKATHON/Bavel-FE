@@ -4,7 +4,8 @@ import { dummyPosts } from '@/mocks/post.mock';
 
 const PostDetail = () => {
   const postId = Number(useParams().postId);
-  return <>{postId && <PostBox {...dummyPosts[postId]} full />}</>;
+  const dummyPost = dummyPosts.filter(post => post.id === postId)[0];
+  return <>{<PostBox {...dummyPost} full />}</>;
 };
 
 export default PostDetail;

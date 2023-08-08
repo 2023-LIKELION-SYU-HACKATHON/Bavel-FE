@@ -4,6 +4,7 @@ import PostSummary from './PostSummary';
 import PostTitle from './PostTitle';
 import PostUserInfo from '../postUserInfo/PostUserInfo';
 import { Post } from '@/types/post.type';
+import { twJoin } from 'tailwind-merge';
 
 interface PostBoxProps extends Post {
   full?: boolean;
@@ -12,7 +13,12 @@ interface PostBoxProps extends Post {
 const PostBox = (post: PostBoxProps) => {
   const { title, content, full } = post;
   return (
-    <article className="flex flex-col gap-6 p-6">
+    <article
+      className={twJoin(
+        'flex flex-col gap-6 p-6',
+        !full && 'border-b border-gray-300',
+      )}
+    >
       <PostUserInfo isShowFollowButton={true} />
       {title && <PostTitle title={title} />}
       {full && (
