@@ -1,30 +1,47 @@
-import { PostBox } from '@/features/post';
+import { getPostPage } from '@/api/post.api';
+import { PostBox, PostBoxSkeletonList } from '@/features/post';
+import { PostPage } from '@/types/post.type';
+import { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { useInfiniteQuery } from 'react-query';
+import { Link } from 'react-router-dom';
 
 const PostBoxList = () => {
-  const dummyData = [
-    {
-      title: '건강한 라이프스타일 어쩌구',
-      content:
-        '별 하나에 추억과 별 하나에 사랑과 별 하나에 쓸쓸함과 별 하나에 동경과 별 하나에 시와 별 하나에 어머니, 어머니, 어머님, 나는 별 하나에 아름다운 말 한 마디씩 불러 봅니다. 소학교 때 책상을 같이 했던 아이들의 이름과  나는 아무걱정도 없이 가을 속의 별들을 다 헬 듯합니다. 딴은 밤을 세워 우는 벌레는 부끄러운 이름을 슬퍼하는 까닭입니다. 별 하나에 추억과 별 하나에 사랑과 별 하나에 쓸쓸함과 별 하나에 동경과 별 하나에 시와 별 하나에 어머니, 어머니, 어머님, 나는 별 하나에 아름다운 말 한 마디씩 불러봅니다. 나는 별 하나에 나는 별 하나에 나는 별 하나에 나는 별 하나에 딴은 밤을 세워 우는 벌레는 부끄러운 이름을 슬퍼하는 까닭입니다. 별 하나에 추억과 별 하나에 사랑과 별 하나에 쓸쓸함과 별 하나에 동경과 별 하나에 시와 별 하나에 어머니, 어머니, 어머님, 나는 별 하나에 아름다운 말 한 마디씩 불러봅니다.',
+  const { ref, inView } = useInView();
+  const fetchPostPage = async ({ pageParam = 0 }) => {
+    console.log('fetch', pageParam);
+    const response = await getPostPage(pageParam);
+    return response;
+  };
+
+  const {
+    data: postPage,
+    fetchNextPage,
+    hasNextPage,
+    isFetching,
+  } = useInfiniteQuery<PostPage>(['posts'], fetchPostPage, {
+    getNextPageParam: lastPage => {
+      return lastPage.hasNext ? lastPage.pageId + 1 : undefined;
     },
-    {
-      title: '나는 삼육대의 왕이다',
-      content: '저는 짱짱맨입니다. ',
-    },
-    {
-      title: '건강한 라이프스타일 어쩌구',
-      content:
-        '별 하나에 추억과 별 하나에 사랑과 별 하나에 쓸쓸함과 별 하나에 동경과 별 하나에 시와 별 하나에 어머니, 어머니, 어머님, 나는 별 하나에 아름다운 말 한 마디씩 불러 봅니다. 소학교 때 책상을 같이 했던 아이들의 이름과  나는 아무걱정도 없이 가을 속의 별들을 다 헬 듯합니다. 딴은 밤을 세워 우는 벌레는 부끄러운 이름을 슬퍼하는 까닭입니다. 별 하나에 추억과 별 하나에 사랑과 별 하나에 쓸쓸함과 별 하나에 동경과 별 하나에 시와 별 하나에 어머니, 어머니, 어머님, 나는 별 하나에 아름다운 말 한 마디씩 불러봅니다. 나는 별 하나에 나는 별 하나에 나는 별 하나에 나는 별 하나에 딴은 밤을 세워 우는 벌레는 부끄러운 이름을 슬퍼하는 까닭입니다. 별 하나에 추억과 별 하나에 사랑과 별 하나에 쓸쓸함과 별 하나에 동경과 별 하나에 시와 별 하나에 어머니, 어머니, 어머님, 나는 별 하나에 아름다운 말 한 마디씩 불러봅니다.',
-    },
-  ];
+  });
+
+  useEffect(() => {
+    if (inView && hasNextPage) {
+      fetchNextPage();
+    }
+  }, [inView]);
 
   return (
     <div className="bg-white">
-      {dummyData.map((data, index) => (
-        <div key={index} className="border-b border-gray-300">
-          <PostBox title={data.title} content={data.content} />
-        </div>
-      ))}
+      {postPage?.pages.map(page =>
+        page.posts.map((post, index) => (
+          <Link to={`/post/${post.id}`} key={index}>
+            <PostBox {...post} />
+          </Link>
+        )),
+      )}
+      {isFetching && <PostBoxSkeletonList />}
+      <div ref={ref} />
     </div>
   );
 };

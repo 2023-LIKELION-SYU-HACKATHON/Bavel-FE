@@ -1,13 +1,12 @@
 interface UserIdProps {
   nickname: string;
-  userHandle: string;
 }
 
-const UserId = ({ nickname, userHandle }: UserIdProps) => {
+const UserId = ({ nickname }: UserIdProps) => {
   return (
     <div>
-      <span className="font-bold text-black">{nickname}</span>
-      <span className="text-base ml-1 text-gray-400">{userHandle}</span>
+      <span className="text-base font-bold text-black">{nickname}</span>
+      {/* <span className="ml-1 text-base text-gray-400">{userHandle}</span> */}
     </div>
   );
 };

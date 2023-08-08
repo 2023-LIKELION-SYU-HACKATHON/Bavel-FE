@@ -3,21 +3,25 @@ import PostContent from './PostContent';
 import PostSummary from './PostSummary';
 import PostTitle from './PostTitle';
 import PostUserInfo from '../postUserInfo/PostUserInfo';
+import { Post } from '@/types/post.type';
+import { twJoin } from 'tailwind-merge';
 
-interface PostBoxProps {
-  title: string;
-  content: string;
+interface PostBoxProps extends Post {
+  full?: boolean; // full이 true면 PostSummary를 표시합니다.
 }
 
-const isTitleVisible = true;
-const isSummaryBoxVisible = true;
-
-const PostBox = ({ title, content }: PostBoxProps) => {
+const PostBox = (post: PostBoxProps) => {
+  const { title, content, full } = post;
   return (
-    <article className="flex flex-col gap-6 p-6">
-      <PostUserInfo isShowFollowButton={true} />
-      {isTitleVisible && <PostTitle title={title} />}
-      {isSummaryBoxVisible && (
+    <article
+      className={twJoin(
+        'flex flex-col gap-6 p-6',
+        !full && 'border-b border-gray-300',
+      )}
+    >
+      <PostUserInfo {...post.author} />
+      {title && <PostTitle title={title} />}
+      {full && (
         <PostSummary
           content="안녕안녕"
           originalLength={content.length}
@@ -25,7 +29,7 @@ const PostBox = ({ title, content }: PostBoxProps) => {
         />
       )}
       <PostContent content={content} />
-      <PostStatList />
+      <PostStatList {...post} />
     </article>
   );
 };
