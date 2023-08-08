@@ -1,12 +1,12 @@
+import { User } from '@/types/user.type';
 import { AiOutlineUser } from 'react-icons/ai';
 
-const UserIcon = () => {
+const UserIcon = ({ avatar }: Partial<User>) => {
   return (
     <div className="avatar">
-      <div className="w-6 h-6 rounded-full ring-2 ring-bavel-gray-dark ring-offset-2">
-        {/* 유저 이미지가 이미지 파일일 때는 다음과 같이 사용합니다. */}
-        {/* <img alt="user-icon" src="/images/logo.png" /> */}
-        <AiOutlineUser className="object-cover w-full h-full" />
+      <div className="w-7 h-7 rounded-full ring-1 ring-gray-300 ring-offset-2">
+        {avatar && <img alt="user-icon" src={avatar} />}
+        {!avatar && <AiOutlineUser className="object-cover w-full h-full" />}
       </div>
     </div>
   );

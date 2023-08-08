@@ -19,7 +19,7 @@ const PostBox = (post: PostBoxProps) => {
         !full && 'border-b border-gray-300',
       )}
     >
-      <PostUserInfo isShowFollowButton={true} />
+      <PostUserInfo {...post.author} />
       {title && <PostTitle title={title} />}
       {full && (
         <PostSummary
