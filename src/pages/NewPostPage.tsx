@@ -1,7 +1,7 @@
 import { Layout } from '@/ui';
 import { NewPost } from '@/features';
 
-const WritePostPage = () => {
+const NewPostPage = () => {
   return (
     <Layout>
       <NewPost />
@@ -9,4 +9,4 @@ const WritePostPage = () => {
   );
 };
 
-export default WritePostPage;
+export default NewPostPage;

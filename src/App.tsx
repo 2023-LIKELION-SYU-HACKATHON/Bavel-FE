@@ -2,7 +2,7 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import MainPage from './pages/MainPage';
 import PostDetailPage from './pages/PostDetailPage';
-import WritePostPage from './pages/WritePostPage';
+import NewPostPage from './pages/NewPostPage';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Route path="/" element={<MainPage />} />
       <Route path="/post/:postId" element={<PostDetailPage />} />
       {/* 추후에 /post/:idx 사용하고 useParams 사용예정 */}
-      <Route path="/write" element={<WritePostPage />} />
+      <Route path="/post/new" element={<NewPostPage />} />
     </Routes>
   );
 }

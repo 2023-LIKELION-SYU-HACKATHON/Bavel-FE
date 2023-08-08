@@ -12,7 +12,7 @@ const PostUserInfo = ({ nickname, country, avatar }: User) => {
       <div className="flex items-center gap-4">
         <UserIcon avatar={avatar} />
         <div className="flex flex-col">
-          <UserId nickname={nickname} userHandle="@nickname" />
+          <UserId nickname={nickname} />
           {/* 임시로 더미 유저의 나라를 통해 나라를 표시하는 언어를 설정합니다. */}
           <UserCountry country={getCountry(dummyUser1.country, country)} />
         </div>

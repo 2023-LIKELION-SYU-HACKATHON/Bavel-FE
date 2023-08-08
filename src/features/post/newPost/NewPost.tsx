@@ -4,7 +4,7 @@ import { dummyUser1 } from '@/mocks/user.mock';
 
 const NewPost = () => {
   return (
-    <article className="w-full h-full flex flex-col gap-6 p-6 ">
+    <article className="w-full grow flex flex-col gap-6 p-6 ">
       <PostUserInfo {...dummyUser1} />
       <TitleInput />
       <ContentInput />

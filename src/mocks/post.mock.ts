@@ -1,6 +1,7 @@
 import { Post, PostPage } from '@/types/post.type';
 import { dummyUser1, dummyUser2, dummyUser3 } from './user.mock';
 
+// 더미 게시글 데이터
 export const dummyPosts: Post[] = [
   {
     id: 1,
@@ -260,6 +261,7 @@ export const dummyPosts: Post[] = [
   },
 ];
 
+// 더미 페이지 데이터
 export const dummyPage1: PostPage = {
   pageId: 0,
   hasNext: true,

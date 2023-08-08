@@ -1,5 +1,6 @@
 import { User } from '@/types/user.type';
 
+// 더미 유저 데이터
 export const dummyUser1: User = {
   id: 1,
   nickname: '일론 머스크',
