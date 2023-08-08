@@ -6,10 +6,13 @@ import { Post } from '@/types/post.type';
 const PostStatList = ({ likes, views, comments }: Post) => {
   return (
     <div className="flex justify-between px-4">
-      <PostStat iconComponent={<FiThumbsUp />} stat={likes} />
-      <PostStat iconComponent={<FaRegComment />} stat={comments.length} />
-      <PostStat iconComponent={<FaRegEye />} stat={views} />
-      <PostStat iconComponent={<FiShare />} />
+      <PostStat iconComponent={<FiThumbsUp size={16} />} stat={likes} />
+      <PostStat
+        iconComponent={<FaRegComment size={16} />}
+        stat={comments.length}
+      />
+      <PostStat iconComponent={<FaRegEye size={16} />} stat={views} />
+      <PostStat iconComponent={<FiShare size={16} />} />
     </div>
   );
 };

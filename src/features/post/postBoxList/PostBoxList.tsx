@@ -1,9 +1,9 @@
-import { PostBox } from '@/features/post';
 import { getPostPage } from '@/api/post.api';
-import { useInfiniteQuery } from 'react-query';
+import { PostBox, PostBoxSkeletonList } from '@/features/post';
 import { PostPage } from '@/types/post.type';
-import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { useInfiniteQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 
 const PostBoxList = () => {
@@ -18,6 +18,7 @@ const PostBoxList = () => {
     data: postPage,
     fetchNextPage,
     hasNextPage,
+    isFetching,
   } = useInfiniteQuery<PostPage>(['posts'], fetchPostPage, {
     getNextPageParam: lastPage => {
       return lastPage.hasNext ? lastPage.pageId + 1 : undefined;
@@ -39,6 +40,7 @@ const PostBoxList = () => {
           </Link>
         )),
       )}
+      {isFetching && <PostBoxSkeletonList />}
       <div ref={ref} />
     </div>
   );

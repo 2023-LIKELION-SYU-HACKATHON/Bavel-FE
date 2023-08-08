@@ -7,7 +7,7 @@ import { Post } from '@/types/post.type';
 import { twJoin } from 'tailwind-merge';
 
 interface PostBoxProps extends Post {
-  full?: boolean;
+  full?: boolean; // full이 true면 PostSummary를 표시합니다.
 }
 
 const PostBox = (post: PostBoxProps) => {
