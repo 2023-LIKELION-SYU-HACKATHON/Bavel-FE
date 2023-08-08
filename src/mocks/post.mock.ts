@@ -5,9 +5,10 @@ export const dummyPosts: Post[] = [
   {
     id: 1,
     author: dummyUser1,
-    title: 'Hot Post 1',
-    content: 'This is a hot post about something.',
-    summary: 'Summary of hot post 1.',
+    title: 'Long Post 1',
+    content:
+      'This is a long post about something. This is a long post about something.This is a long post about something.This is a long post about something.This is a long post about something.This is a long post about something.',
+    summary: 'Summary of long post 1.',
     photos: [],
     views: 1000,
     likes: 50,
@@ -32,7 +33,7 @@ export const dummyPosts: Post[] = [
       },
     ],
     created_at: '2023-08-07',
-    category: 'hot',
+    category: 'economy',
   },
   {
     id: 2,
@@ -156,7 +157,7 @@ export const dummyPosts: Post[] = [
       },
     ],
     created_at: '2023-08-02',
-    category: 'hot',
+    category: 'economy',
   },
   {
     id: 7,

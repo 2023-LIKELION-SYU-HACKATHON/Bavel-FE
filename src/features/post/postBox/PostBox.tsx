@@ -3,21 +3,19 @@ import PostContent from './PostContent';
 import PostSummary from './PostSummary';
 import PostTitle from './PostTitle';
 import PostUserInfo from '../postUserInfo/PostUserInfo';
+import { Post } from '@/types/post.type';
 
-interface PostBoxProps {
-  title: string;
-  content: string;
+interface PostBoxProps extends Post {
+  full?: boolean;
 }
 
-const isTitleVisible = true;
-const isSummaryBoxVisible = true;
-
-const PostBox = ({ title, content }: PostBoxProps) => {
+const PostBox = (post: PostBoxProps) => {
+  const { title, content, full } = post;
   return (
     <article className="flex flex-col gap-6 p-6">
       <PostUserInfo isShowFollowButton={true} />
-      {isTitleVisible && <PostTitle title={title} />}
-      {isSummaryBoxVisible && (
+      {title && <PostTitle title={title} />}
+      {full && (
         <PostSummary
           content="안녕안녕"
           originalLength={content.length}
@@ -25,7 +23,7 @@ const PostBox = ({ title, content }: PostBoxProps) => {
         />
       )}
       <PostContent content={content} />
-      <PostStatList />
+      <PostStatList {...post} />
     </article>
   );
 };

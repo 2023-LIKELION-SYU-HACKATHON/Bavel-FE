@@ -34,7 +34,7 @@ const PostBoxList = () => {
       {postPage?.pages.map(page =>
         page.posts.map((post, index) => (
           <div key={index} className="border-b border-gray-300">
-            <PostBox title={post.title} content={post.content} />
+            <PostBox {...post} />
           </div>
         )),
       )}
