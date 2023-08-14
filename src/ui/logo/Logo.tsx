@@ -2,18 +2,19 @@ import { Link } from 'react-router-dom';
 
 interface LogoProps {
   large?: boolean;
+  to?: string;
 }
-const Logo = ({ large }: LogoProps) => {
+const Logo = ({ large, to }: LogoProps) => {
+  let logo = <img alt="logo" src="/bavel_svg.svg" className="w-12" />;
   if (large) {
-    return <img alt="logo" src="/bavel_svg.svg" className=" w-32" />;
+    logo = <img alt="logo" src="/bavel_svg.svg" className=" w-32" />;
   }
-  if (!large) {
-    return (
-      <Link to={'/'}>
-        <img alt="logo" src="/bavel_svg.svg" className="h-4 max-w-none" />
-      </Link>
-    );
+
+  if (to) {
+    return <Link to={to}>{logo}</Link>;
   }
+
+  return logo;
 };
 
 export default Logo;

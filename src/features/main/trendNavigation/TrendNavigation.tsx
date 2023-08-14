@@ -3,7 +3,7 @@ import TrendButton from './TrendButton';
 
 const TrendNavigation = () => {
   const [currentTrend, setCurrentTrend] = useState('실시간 인기');
-  const trends = ['실시간 인기', '연예', '정치', '경제', '스포츠', 'IT・기술'];
+  const trends = ['실시간 인기', '연예', '경제', '스포츠', 'IT・기술'];
 
   const changeCurrentTrend = (trend: string) => {
     setCurrentTrend(trend);
