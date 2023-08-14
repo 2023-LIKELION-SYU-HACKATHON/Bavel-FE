@@ -1,3 +1,4 @@
+import { LoginForm } from '@/features/login';
 import { Layout, Logo } from '@/ui';
 
 const LoginPage = () => {
@@ -6,6 +7,7 @@ const LoginPage = () => {
       <div className="flex justify-center">
         <Logo large />
       </div>
+      <LoginForm />
     </Layout>
   );
 };
