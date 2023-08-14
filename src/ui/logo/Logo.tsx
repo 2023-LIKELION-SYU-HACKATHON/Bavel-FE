@@ -5,12 +5,12 @@ interface LogoProps {
 }
 const Logo = ({ large }: LogoProps) => {
   if (large) {
-    return <img alt="logo" src="/images/logo.png" className=" w-28" />;
+    return <img alt="logo" src="/bavel_svg.svg" className=" w-32" />;
   }
   if (!large) {
     return (
       <Link to={'/'}>
-        <img alt="logo" src="/images/logo.png" className="h-4 max-w-none" />
+        <img alt="logo" src="/bavel_svg.svg" className="h-4 max-w-none" />
       </Link>
     );
   }

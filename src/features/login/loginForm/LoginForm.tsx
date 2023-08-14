@@ -14,13 +14,17 @@ const LoginForm = () => {
   const onSubmit: SubmitHandler<LoginForm> = data => console.log(data);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="flex flex-col w-full gap-5 px-4"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <LoginInput
         id="id"
         type="text"
-        label="이메일"
+        label="아이디"
         errors={errors}
         control={control}
+        pattern="^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
       />
       <LoginInput
         id="password"
@@ -29,7 +33,10 @@ const LoginForm = () => {
         errors={errors}
         control={control}
       />
-      <button type="submit" className="btn">
+      <button
+        type="submit"
+        className="font-semibold text-white border-0 btn bg-bavel-orange hover:bg-bavel-orange"
+      >
         로그인
       </button>
     </form>
