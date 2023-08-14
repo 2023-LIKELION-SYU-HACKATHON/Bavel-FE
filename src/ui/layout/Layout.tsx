@@ -1,16 +1,30 @@
 import { Header, Footer } from '@/ui';
+import { twMerge } from 'tailwind-merge';
 
 interface LayoutProps {
   children: React.ReactNode;
+  DisableHeader?: boolean;
+  DisableFooter?: boolean;
+  className?: string;
 }
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({
+  children,
+  DisableHeader,
+  DisableFooter,
+  className,
+}: LayoutProps) => {
   return (
-    <div className="flex flex-col w-screen h-full min-h-screen bg-white">
-      <Header />
+    <main
+      className={twMerge(
+        'flex flex-col w-screen h-full min-h-screen bg-white',
+        className,
+      )}
+    >
+      {!DisableHeader && <Header />}
       {children}
-      <Footer />
-    </div>
+      {!DisableFooter && <Footer />}
+    </main>
   );
 };
 
