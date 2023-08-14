@@ -2,15 +2,17 @@ import { Header, Footer } from '@/ui';
 
 interface LayoutProps {
   children: React.ReactNode;
+  DisableHeader?: boolean;
+  DisableFooter?: boolean;
 }
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children, DisableHeader, DisableFooter }: LayoutProps) => {
   return (
-    <div className="flex flex-col w-screen h-full min-h-screen bg-white">
-      <Header />
+    <main className="flex flex-col w-screen h-full min-h-screen bg-white">
+      {!DisableHeader && <Header />}
       {children}
-      <Footer />
-    </div>
+      {!DisableFooter && <Footer />}
+    </main>
   );
 };
 
