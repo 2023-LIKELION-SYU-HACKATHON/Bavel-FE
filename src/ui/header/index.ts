@@ -1,3 +1,3 @@
 import Header from './Header';
-
-export { Header };
+import SignUpPageHeader from './SignUpPageHeader';
+export { Header, SignUpPageHeader };
