@@ -5,13 +5,12 @@ interface SignUpInputProps {
   type: string; // input type
   label: string; // input 왼쪽 위 label
   errors: FieldErrors; // react-hook-form 에서 제공하는 error 객체
-  placeholder: string; //placeholder
+  placeholder?: string; //placeholder
   control: Control<any>; // react-hook-form 에서 제공하는 control 객체
   pattern?: string; // input의 정규식 패턴
   validate?: any;
 }
 
-// react-hook-form 의 Form에 사용되는 커스텀 Input 입니다.
 const SignUpInput = ({
   id,
   type,
@@ -61,8 +60,10 @@ const SignUpInput = ({
             : `${label} 형식이 올바르지 않습니다.`}
         </span>
       )}
-      {errors[id] && errors[id]?.type === 'validate' && (
-        <span className="text-base text-red-500">ㅇㄴㄹ</span>
+      {errors[id] && label === 'Confirm Password' && (
+        <span className="text-base text-red-500">
+          비밀번호가 일치하지 않습니다
+        </span>
       )}
     </div>
   );
