@@ -1,3 +1,4 @@
+export type LanguageNames = 'ko' | 'en' | 'ja';
 export type CountryNames = 'korea' | 'united states' | 'japan';
 
 export const country: Record<CountryNames, Record<CountryNames, string>> = {

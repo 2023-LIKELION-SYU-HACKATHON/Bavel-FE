@@ -4,7 +4,7 @@ import { CountryNames } from '@/constants/country';
 export interface User {
   id: number;
   nickname: string;
-  country: CountryNames;
+  country?: CountryNames;
   avatar: string;
-  followers: number;
+  followers?: number;
 }
