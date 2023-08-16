@@ -16,19 +16,19 @@ export const dummyPosts: Post[] = [
     comments: [
       {
         id: 1,
-        author: dummyUser1,
+        author: dummyUser2,
         content: 'This is comment 1.',
         created_at: '2023-08-07',
       },
       {
         id: 2,
-        author: dummyUser1,
+        author: dummyUser3,
         content: 'This is comment 2.',
         created_at: '2023-08-07',
       },
       {
         id: 3,
-        author: dummyUser1,
+        author: dummyUser2,
         content: 'This is comment 3.',
         created_at: '2023-08-07',
       },
@@ -54,7 +54,7 @@ export const dummyPosts: Post[] = [
       },
       {
         id: 2,
-        author: dummyUser1,
+        author: dummyUser3,
         content: 'This is comment 2.',
         created_at: '2023-08-07',
       },
@@ -94,19 +94,19 @@ export const dummyPosts: Post[] = [
     comments: [
       {
         id: 1,
-        author: dummyUser1,
+        author: dummyUser2,
         content: 'This is comment 1.',
         created_at: '2023-08-07',
       },
       {
         id: 2,
-        author: dummyUser1,
+        author: dummyUser3,
         content: 'This is comment 2.',
         created_at: '2023-08-07',
       },
       {
         id: 3,
-        author: dummyUser1,
+        author: dummyUser2,
         content: 'This is comment 3.',
         created_at: '2023-08-07',
       },
@@ -132,7 +132,7 @@ export const dummyPosts: Post[] = [
       },
       {
         id: 2,
-        author: dummyUser1,
+        author: dummyUser3,
         content: 'This is comment 2.',
         created_at: '2023-08-07',
       },
@@ -172,13 +172,13 @@ export const dummyPosts: Post[] = [
     comments: [
       {
         id: 1,
-        author: dummyUser1,
+        author: dummyUser2,
         content: 'This is comment 1.',
         created_at: '2023-08-07',
       },
       {
         id: 2,
-        author: dummyUser1,
+        author: dummyUser3,
         content: 'This is comment 2.',
         created_at: '2023-08-07',
       },
@@ -239,7 +239,7 @@ export const dummyPosts: Post[] = [
     comments: [
       {
         id: 1,
-        author: dummyUser1,
+        author: dummyUser3,
         content: 'This is comment 1.',
         created_at: '2023-08-07',
       },
