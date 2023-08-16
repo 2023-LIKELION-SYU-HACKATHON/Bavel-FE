@@ -8,7 +8,8 @@ interface SignUpForm {
   email: string;
   password: string;
   passwordConfirm: string;
-  language: 'ko' | 'en' | 'jp'; // Updated language options
+  language: 'ko' | 'en' | 'jp';
+  profile: File;
 }
 
 const SignUpForm = () => {
@@ -25,6 +26,9 @@ const SignUpForm = () => {
   const [selectedLanguage, setSelectedLanguage] = useState<
     'ko' | 'en' | 'jp' | null
   >(null);
+  const defaultProfileImage = 'src/assets/defaultProfile.jpg';
+
+  const [selectedProfile, setSelectedProfile] = useState<File | null>(null);
 
   return (
     <form
@@ -32,7 +36,7 @@ const SignUpForm = () => {
       onSubmit={handleSubmit(onSubmit)}
     >
       <SignUpInput
-        id="id"
+        id="userId"
         type="text"
         label="Email"
         placeholder={'Enter your email'}
@@ -41,7 +45,7 @@ const SignUpForm = () => {
         pattern="^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
       />
       <SignUpInput
-        id="password"
+        id="userPassword"
         type="password"
         label="Password"
         placeholder={'Enter your password'}
@@ -62,7 +66,7 @@ const SignUpForm = () => {
         }}
       />
       <SignUpInput
-        id="nickname"
+        id="userNickname"
         type="text"
         label="Nickname"
         placeholder={'Enter your nickname'}
@@ -119,6 +123,39 @@ const SignUpForm = () => {
               onChange={() => setSelectedLanguage('jp')}
             />
             Japanese
+          </label>
+        </div>
+      </div>
+
+      <div className="pl-1 flex flex-col">
+        <span className="label-text font-medium text-base">
+          Profile Picture
+        </span>
+        <div className="flex flex-row pt-3 items-center justify-start gap-3">
+          {selectedProfile ? (
+            <img
+              src={URL.createObjectURL(selectedProfile)}
+              alt="Selected profile"
+              className="w-20 h-20 rounded-full border-2 border-gray-400"
+            />
+          ) : (
+            <img
+              src={defaultProfileImage}
+              alt="Default profile"
+              className="w-20 h-20 rounded-full border-2 border-gray-400"
+            />
+          )}
+          <label className="p-2 px-3 rounded-lg cursor-pointer m-0 bg-gray-300 hover:bg-gray-500 hover:text-white">
+            <input
+              type="file"
+              accept="image/*"
+              onChange={e => {
+                setSelectedProfile(e.target.files && e.target.files[0]);
+                register('profile', { required: true });
+              }}
+              className=" hidden"
+            />
+            Upload
           </label>
         </div>
       </div>
