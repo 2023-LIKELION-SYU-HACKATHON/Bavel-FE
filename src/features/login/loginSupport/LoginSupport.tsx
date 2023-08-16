@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const LoginSupport = () => {
   return (
     <div className="px-8 flex w-full gap-2 justify-between text-gray-400 text-sm font-medium">
@@ -5,7 +7,9 @@ const LoginSupport = () => {
       <div>|</div>
       <button>비밀번호 찾기</button>
       <div>|</div>
-      <button>회원가입</button>
+      <Link to="/signup">
+        <button>회원가입</button>
+      </Link>
     </div>
   );
 };

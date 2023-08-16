@@ -1,17 +1,23 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { LoginInput } from '@/features/login';
+import useLogin from '@/hooks/useLogin';
+import { LoginRequest } from '@/types/auth.type';
 
-interface LoginForm {
-  id: string;
-  password: string;
-}
 const LoginForm = () => {
+  const loginMutation = useLogin();
   const {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm<LoginForm>();
-  const onSubmit: SubmitHandler<LoginForm> = data => console.log(data);
+  } = useForm<LoginRequest>();
+  const onSubmit: SubmitHandler<LoginRequest> = data =>
+    loginMutation.mutate(data, {
+      onSuccess(data, variables, context) {
+        console.log(data);
+        console.log(variables);
+        console.log(context);
+      },
+    });
 
   return (
     <form
@@ -19,7 +25,7 @@ const LoginForm = () => {
       onSubmit={handleSubmit(onSubmit)}
     >
       <LoginInput
-        id="id"
+        id="userId"
         type="text"
         label="아이디"
         errors={errors}
@@ -27,7 +33,7 @@ const LoginForm = () => {
         pattern="^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
       />
       <LoginInput
-        id="password"
+        id="userPassword"
         type="password"
         label="비밀번호"
         errors={errors}

@@ -7,7 +7,7 @@ import { worker } from './mocks/worker';
 
 // msw Mock 서버를 실행합니다.
 if (process.env.NODE_ENV === 'development') {
-  worker.start();
+  // worker.start();
 }
 
 const queryClient = new QueryClient();
