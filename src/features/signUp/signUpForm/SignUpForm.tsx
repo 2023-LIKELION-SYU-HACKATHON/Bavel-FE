@@ -50,10 +50,6 @@ const SignUpForm = () => {
     formData.append('language', selectedLanguage!);
     formData.append('profile', selectedProfile!);
 
-    for (let key of formData.keys()) {
-      console.log(`${key}`, ':', formData.get(`${key}`));
-    }
-
     axios({
       method: 'post',
       url: 'http://175.45.194.125:8080/members/signup',
