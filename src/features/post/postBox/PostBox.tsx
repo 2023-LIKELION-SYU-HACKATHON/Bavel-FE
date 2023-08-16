@@ -5,6 +5,7 @@ import PostTitle from './PostTitle';
 import PostUserInfo from '../postUserInfo/PostUserInfo';
 import { Post } from '@/types/post.type';
 import { twJoin } from 'tailwind-merge';
+import PostImageSwiper from '../postImageSwiper/PostImageSwiper';
 
 interface PostBoxProps extends Post {
   full?: boolean; // full이 true면 PostSummary를 표시합니다.
@@ -21,6 +22,7 @@ const PostBox = (post: PostBoxProps) => {
     >
       <PostUserInfo {...post.author} />
       {title && <PostTitle title={title} />}
+      <PostImageSwiper />
       {full && (
         <PostSummary
           content="안녕안녕"
