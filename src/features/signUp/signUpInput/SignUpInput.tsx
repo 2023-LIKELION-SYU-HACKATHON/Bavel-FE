@@ -60,11 +60,13 @@ const SignUpInput = ({
             : `${label} 형식이 올바르지 않습니다.`}
         </span>
       )}
-      {errors[id] && label === 'Confirm Password' && (
-        <span className="text-base text-red-500">
-          비밀번호가 일치하지 않습니다
-        </span>
-      )}
+      {errors[id] &&
+        errors[id]?.type !== 'required' &&
+        label === 'Confirm Password' && (
+          <span className="text-base text-red-500">
+            비밀번호가 일치하지 않습니다
+          </span>
+        )}
     </div>
   );
 };
