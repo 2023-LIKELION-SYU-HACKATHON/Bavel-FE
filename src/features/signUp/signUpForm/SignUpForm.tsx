@@ -1,14 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+
 import SignUpInput from '../signUpInput/SignUpInput';
 import SignUpButton from '../signUpButton.tsx/SignUpButton';
+import axios from 'axios';
 
 interface SignUpForm {
   nickname: string;
   email: string;
   password: string;
   passwordConfirm: string;
-  language: 'ko' | 'en' | 'jp';
+  language: string;
   profile: File;
 }
 
@@ -20,15 +22,43 @@ const SignUpForm = () => {
     watch,
     register,
   } = useForm<SignUpForm>();
-  const onSubmit: SubmitHandler<SignUpForm> = data => console.log(data);
 
-  const password = watch('password');
+  const userPassword = watch('password');
   const [selectedLanguage, setSelectedLanguage] = useState<
     'ko' | 'en' | 'jp' | null
   >(null);
-  const defaultProfileImage = 'src/assets/defaultProfile.jpg';
-
   const [selectedProfile, setSelectedProfile] = useState<File | null>(null);
+  const defaultProfileImagePath = '/images/defaultProfile.jpg';
+
+  useEffect(() => {
+    fetch('/images/defaultProfile.jpg')
+      .then(response => response.blob())
+      .then(blob => {
+        const defaultProfile = new File([blob], 'defaultProfile.jpg', {
+          type: blob.type,
+        });
+        setSelectedProfile(defaultProfile);
+      });
+  }, []);
+
+  const onSubmit: SubmitHandler<SignUpForm> = async data => {
+    const formData = new FormData();
+
+    formData.append('userId', data.email);
+    formData.append('userPassword', data.password);
+    formData.append('userNickname', data.nickname);
+    formData.append('language', selectedLanguage!);
+    formData.append('profile', selectedProfile!);
+
+    axios({
+      method: 'post',
+      url: 'http://175.45.194.125:8080/members/signup',
+      data: formData,
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+  };
 
   return (
     <form
@@ -36,7 +66,7 @@ const SignUpForm = () => {
       onSubmit={handleSubmit(onSubmit)}
     >
       <SignUpInput
-        id="userId"
+        id="email"
         type="text"
         label="Email"
         placeholder={'Enter your email'}
@@ -45,13 +75,13 @@ const SignUpForm = () => {
         pattern="^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
       />
       <SignUpInput
-        id="userPassword"
+        id="password"
         type="password"
         label="Password"
         placeholder={'Enter your password'}
         errors={errors}
         control={control}
-        pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+        pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$#^!%*?&]{8,}$"
       />
       <SignUpInput
         id="passwordConfirm"
@@ -62,11 +92,11 @@ const SignUpForm = () => {
         control={control}
         validate={{
           previousPassword: (value: string) =>
-            value === password || 'Passwords do not match',
+            value === userPassword || 'Passwords do not match',
         }}
       />
       <SignUpInput
-        id="userNickname"
+        id="nickname"
         type="text"
         label="Nickname"
         placeholder={'Enter your nickname'}
@@ -83,7 +113,7 @@ const SignUpForm = () => {
             }`}
           >
             <input
-              {...register('language')}
+              {...register('language', { required: true })}
               type="radio"
               value="ko"
               id="language-ko"
@@ -99,7 +129,7 @@ const SignUpForm = () => {
             }`}
           >
             <input
-              {...register('language')}
+              {...register('language', { required: true })}
               type="radio"
               value="en"
               id="language-en"
@@ -115,7 +145,7 @@ const SignUpForm = () => {
             }`}
           >
             <input
-              {...register('language')}
+              {...register('language', { required: true })}
               type="radio"
               value="jp"
               id="language-jp"
@@ -140,20 +170,31 @@ const SignUpForm = () => {
             />
           ) : (
             <img
-              src={defaultProfileImage}
-              alt="Default profile"
+              src={
+                selectedProfile
+                  ? URL.createObjectURL(selectedProfile)
+                  : defaultProfileImagePath
+              }
+              alt="Profile"
               className="w-20 h-20 rounded-full border-2 border-gray-400"
             />
           )}
+
           <label className="p-2 px-3 rounded-lg cursor-pointer m-0 bg-gray-300 hover:bg-gray-500 hover:text-white">
             <input
               type="file"
               accept="image/*"
               onChange={e => {
-                setSelectedProfile(e.target.files && e.target.files[0]);
-                register('profile', { required: true });
+                const selectedFile = e.target.files && e.target.files[0];
+                if (selectedFile) {
+                  setSelectedProfile(selectedFile);
+                  register('profile', {
+                    required: false,
+                    value: selectedFile,
+                  });
+                }
               }}
-              className=" hidden"
+              className="hidden"
             />
             Upload
           </label>
