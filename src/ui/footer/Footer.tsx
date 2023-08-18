@@ -5,7 +5,7 @@ const Footer = () => {
     <>
       {/* 공간 가려짐 해결을 위한 Spacer */}
       <div className="h-20" />
-      <footer className="fixed bottom-0 flex w-full h-20 bg-white border-t border-black items-center justify-between p-4">
+      <footer className="fixed bottom-0 flex w-full h-20 z-50 bg-white border-t border-black items-center justify-between p-4">
         <FooterIcon title="홈" />
         <FooterIcon title="기능1" />
         <FooterIcon title="기능2" />
