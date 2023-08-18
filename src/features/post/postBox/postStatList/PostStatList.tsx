@@ -7,11 +7,11 @@ const PostStatList = (post: Post) => {
   return (
     <div className="flex justify-between px-4">
       <PostStat iconComponent={<FiThumbsUp size={16} />} stat={post.likes} />
-      {/* <PostStat
+      <PostStat
         iconComponent={<FaRegComment size={16} />}
-        stat={post.c}
-      /> */}
-      <PostStat iconComponent={<FaRegEye size={16} />} stat={post.hit} />
+        stat={post.comments.length}
+      />
+      <PostStat iconComponent={<FaRegEye size={16} />} stat={post.likes} />
       <PostStat iconComponent={<FiShare size={16} />} />
     </div>
   );

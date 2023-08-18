@@ -23,7 +23,7 @@ const Layout = ({
     >
       {!DisableHeader && <Header />}
       {children}
-      {!DisableFooter && <Footer />}
+      {/* {!DisableFooter && <Footer />} */}
     </main>
   );
 };

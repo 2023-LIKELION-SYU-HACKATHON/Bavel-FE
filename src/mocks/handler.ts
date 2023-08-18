@@ -1,5 +1,15 @@
 import { rest } from 'msw';
-import { dummyPage1, dummyPage2, dummyPage3 } from './post.mock';
+import {
+  dummyKoPage1,
+  dummyKoPage2,
+  dummyKoPage3,
+  dummyEnPage1,
+  dummyEnPage2,
+  dummyEnPage3,
+  dummyJaPage1,
+  dummyJaPage2,
+  dummyJaPage3,
+} from './post.mock';
 
 // 명시적으로 딜레이를 주는 함수입니다.
 async function sleep(timeout: number) {
@@ -10,11 +20,27 @@ async function sleep(timeout: number) {
 
 // Mock API를 정의합니다.
 export const handlers = [
-  rest.get(`/post`, async (req, res, ctx) => {
+  rest.get(`/ko_post`, async (req, res, ctx) => {
     const pageNumber = req.url.searchParams.get('page');
     await sleep(1000);
-    if (pageNumber === '0') return res(ctx.status(200), ctx.json(dummyPage1));
-    if (pageNumber === '1') return res(ctx.status(200), ctx.json(dummyPage2));
-    if (pageNumber === '2') return res(ctx.status(200), ctx.json(dummyPage3));
+    if (pageNumber === '0') return res(ctx.status(200), ctx.json(dummyKoPage1));
+    if (pageNumber === '1') return res(ctx.status(200), ctx.json(dummyKoPage2));
+    if (pageNumber === '2') return res(ctx.status(200), ctx.json(dummyKoPage3));
+  }),
+
+  rest.get(`/en_post`, async (req, res, ctx) => {
+    const pageNumber = req.url.searchParams.get('page');
+    await sleep(1000);
+    if (pageNumber === '0') return res(ctx.status(200), ctx.json(dummyEnPage1));
+    if (pageNumber === '1') return res(ctx.status(200), ctx.json(dummyEnPage2));
+    if (pageNumber === '2') return res(ctx.status(200), ctx.json(dummyEnPage3));
+  }),
+
+  rest.get(`/ja_post`, async (req, res, ctx) => {
+    const pageNumber = req.url.searchParams.get('page');
+    await sleep(1000);
+    if (pageNumber === '0') return res(ctx.status(200), ctx.json(dummyJaPage1));
+    if (pageNumber === '1') return res(ctx.status(200), ctx.json(dummyJaPage2));
+    if (pageNumber === '2') return res(ctx.status(200), ctx.json(dummyJaPage3));
   }),
 ];

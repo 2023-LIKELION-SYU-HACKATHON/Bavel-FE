@@ -15,9 +15,7 @@ const LoginForm = () => {
   const onSubmit: SubmitHandler<LoginRequest> = data =>
     loginMutation.mutate(data, {
       onSuccess(data, variables, context) {
-        console.log(data);
-        console.log(variables);
-        console.log(context);
+        sessionStorage.setItem('language', data.language);
         naviagte('/');
       },
     });

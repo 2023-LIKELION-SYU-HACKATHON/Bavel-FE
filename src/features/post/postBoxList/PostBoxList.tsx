@@ -1,4 +1,4 @@
-import { getPostPage } from '@/api/post.api';
+import { getKoPostPage, getEnPostPage, getJaPostPage } from '@/api/post.api';
 import { PostBox, PostBoxSkeletonList } from '@/features/post';
 import { PostPage } from '@/types/post.type';
 import { useEffect } from 'react';
@@ -8,10 +8,20 @@ import { Link } from 'react-router-dom';
 
 const PostBoxList = () => {
   const { ref, inView } = useInView();
-  const fetchPostPage = async ({ pageParam = 1 }) => {
-    console.log('fetch', pageParam);
-    const response = await getPostPage(pageParam);
-    return response;
+  const fetchPostPage = async ({ pageParam = 0 }) => {
+    const userLanguage = sessionStorage.getItem('language');
+    if (userLanguage === 'ko') {
+      const response = await getKoPostPage(pageParam);
+      return response;
+    }
+    if (userLanguage === 'en') {
+      const response = await getEnPostPage(pageParam);
+      return response;
+    }
+    if (userLanguage === 'ja') {
+      const response = await getJaPostPage(pageParam);
+      return response;
+    }
   };
 
   const {
@@ -21,7 +31,7 @@ const PostBoxList = () => {
     isFetching,
   } = useInfiniteQuery<PostPage>(['posts'], fetchPostPage, {
     getNextPageParam: lastPage => {
-      return lastPage.hasNextNumber ? lastPage.pageNumber + 1 : undefined;
+      return lastPage.hasNext ? lastPage.pageId + 1 : undefined;
     },
   });
 
@@ -34,7 +44,7 @@ const PostBoxList = () => {
   return (
     <div className="bg-white">
       {postPage?.pages.map(page =>
-        page.list.map((post, index) => (
+        page.posts.map((post, index) => (
           <Link to={`/post/${post.id}`} key={index}>
             <PostBox {...post} />
           </Link>

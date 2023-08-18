@@ -11,16 +11,6 @@ interface PostBoxProps extends Post {
   full?: boolean; // full이 true면 PostSummary를 표시합니다.
 }
 
-// id: number;
-// member_nickName: string;
-// category_name: string;
-// title: string;
-// content: string;
-// summary: string;
-// date: string[];
-// hit: number;
-// likes: number;
-
 const PostBox = (post: PostBoxProps) => {
   return (
     <article
@@ -29,10 +19,10 @@ const PostBox = (post: PostBoxProps) => {
         !post.full && 'border-b border-gray-300',
       )}
     >
-      {/* <PostUserInfo {...post.author} /> */}
+      <PostUserInfo {...post.author} />
       {post.title && <PostTitle title={post.title} />}
 
-      <PostImageSwiper />
+      {/* <PostImageSwiper /> */}
       {post.full && (
         <PostSummary
           content={post.summary}

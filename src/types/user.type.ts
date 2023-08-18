@@ -1,10 +1,10 @@
 // 유저
-import { CountryNames } from '@/constants/country';
+import { LanguageNames } from '@/constants/country';
 
 export interface User {
   id: number;
   nickname: string;
-  country: CountryNames;
+  language: LanguageNames;
   avatar: string;
   followers?: number;
 }

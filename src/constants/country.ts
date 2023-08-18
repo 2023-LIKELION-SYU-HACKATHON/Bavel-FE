@@ -1,26 +1,25 @@
 export type LanguageNames = 'ko' | 'en' | 'ja';
-export type CountryNames = 'korea' | 'united states' | 'japan';
 
-export const country: Record<CountryNames, Record<CountryNames, string>> = {
-  korea: {
-    korea: '대한민국',
-    'united states': '미국',
-    japan: '일본',
+export const country: any = {
+  ko: {
+    ko: '한국어',
+    en: '영어',
+    ja: '일본어',
   },
-  'united states': {
-    korea: 'korea',
-    'united states': 'united states',
-    japan: 'japan',
+  en: {
+    ko: 'korean',
+    en: 'english',
+    ja: 'japanese',
   },
-  japan: {
-    korea: '韓国',
-    'united states': 'アメリカ',
-    japan: '日本',
+  ja: {
+    ko: '韓国語',
+    en: '英語',
+    ja: '日本語',
   },
 };
 
-export const countryFlag: Record<CountryNames, string> = {
-  korea: '🇰🇷',
-  'united states': '🇺🇸',
-  japan: '🇯🇵',
+export const countryFlag: any = {
+  ko: '🇰🇷',
+  en: '🇺🇸',
+  ja: '🇯🇵',
 };

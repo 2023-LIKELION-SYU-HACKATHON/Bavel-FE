@@ -27,7 +27,7 @@ const SignUpForm = () => {
 
   const userPassword = watch('password');
   const [selectedLanguage, setSelectedLanguage] = useState<
-    'ko' | 'en' | 'jp' | null
+    'ko' | 'en' | 'ja' | null
   >(null);
   const [selectedProfile, setSelectedProfile] = useState<File | null>(null);
   const defaultProfileImagePath = '/images/defaultProfile.jpg';
@@ -141,18 +141,18 @@ const SignUpForm = () => {
             English
           </label>
           <label
-            htmlFor="language-jp"
+            htmlFor="language-ja"
             className={`p-2 px-3 rounded-lg cursor-pointer m-0 bg-gray-300 ${
-              selectedLanguage === 'jp' ? 'bg-gray-500 text-white' : ''
+              selectedLanguage === 'ja' ? 'bg-gray-500 text-white' : ''
             }`}
           >
             <input
               {...register('language', { required: true })}
               type="radio"
-              value="jp"
-              id="language-jp"
+              value="ja"
+              id="language-ja"
               className="hidden"
-              onChange={() => setSelectedLanguage('jp')}
+              onChange={() => setSelectedLanguage('ja')}
             />
             Japanese
           </label>
