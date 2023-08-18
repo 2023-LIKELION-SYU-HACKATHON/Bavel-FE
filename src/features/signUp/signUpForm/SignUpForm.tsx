@@ -25,6 +25,8 @@ const SignUpForm = () => {
     register,
   } = useForm<SignUpForm>();
 
+  console.log(errors);
+
   const userPassword = watch('password');
   const [selectedLanguage, setSelectedLanguage] = useState<'ko' | 'en' | 'jp'>(
     'ko',
