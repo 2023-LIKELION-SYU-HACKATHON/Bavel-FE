@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 import SignUpInput from '../signUpInput/SignUpInput';
 import SignUpButton from '../signUpButton.tsx/SignUpButton';
@@ -15,6 +16,7 @@ interface SignUpForm {
 }
 
 const SignUpForm = () => {
+  const navigate = useNavigate();
   const {
     handleSubmit,
     control,
@@ -24,9 +26,9 @@ const SignUpForm = () => {
   } = useForm<SignUpForm>();
 
   const userPassword = watch('password');
-  const [selectedLanguage, setSelectedLanguage] = useState<
-    'ko' | 'en' | 'jp' | null
-  >(null);
+  const [selectedLanguage, setSelectedLanguage] = useState<'ko' | 'en' | 'jp'>(
+    'ko',
+  );
   const [selectedProfile, setSelectedProfile] = useState<File | null>(null);
   const defaultProfileImagePath = '/images/defaultProfile.jpg';
 
@@ -47,7 +49,7 @@ const SignUpForm = () => {
     formData.append('userId', data.email);
     formData.append('userPassword', data.password);
     formData.append('userNickname', data.nickname);
-    formData.append('language', selectedLanguage!);
+    formData.append('language', selectedLanguage);
     formData.append('profile', selectedProfile!);
 
     axios({
@@ -57,12 +59,14 @@ const SignUpForm = () => {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
+    }).then(() => {
+      navigate('/login');
     });
   };
 
   return (
     <form
-      className="flex flex-col w-full gap-5 px-4"
+      className="flex flex-col w-full gap-5 px-4 pb-4"
       onSubmit={handleSubmit(onSubmit)}
     >
       <SignUpInput
@@ -188,10 +192,6 @@ const SignUpForm = () => {
                 const selectedFile = e.target.files && e.target.files[0];
                 if (selectedFile) {
                   setSelectedProfile(selectedFile);
-                  register('profile', {
-                    required: false,
-                    value: selectedFile,
-                  });
                 }
               }}
               className="hidden"
