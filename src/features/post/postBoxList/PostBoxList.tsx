@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom';
 
 const PostBoxList = () => {
   const { ref, inView } = useInView();
+  const userLanguage = sessionStorage.getItem('language');
   const fetchPostPage = async ({ pageParam = 0 }) => {
-    const userLanguage = sessionStorage.getItem('language');
     if (userLanguage === 'ko') {
       const response = await getKoPostPage(pageParam);
       return response;
@@ -33,6 +33,7 @@ const PostBoxList = () => {
     getNextPageParam: lastPage => {
       return lastPage.hasNext ? lastPage.pageId + 1 : undefined;
     },
+    enabled: !!userLanguage,
   });
 
   useEffect(() => {
