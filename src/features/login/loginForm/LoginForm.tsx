@@ -2,8 +2,10 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { LoginInput } from '@/features/login';
 import useLogin from '@/hooks/useLogin';
 import { LoginRequest } from '@/types/auth.type';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
+  const naviagte = useNavigate();
   const loginMutation = useLogin();
   const {
     handleSubmit,
@@ -16,6 +18,7 @@ const LoginForm = () => {
         console.log(data);
         console.log(variables);
         console.log(context);
+        naviagte('/');
       },
     });
 

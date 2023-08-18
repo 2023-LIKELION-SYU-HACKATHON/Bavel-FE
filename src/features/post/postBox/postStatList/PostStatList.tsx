@@ -3,15 +3,15 @@ import { FaRegComment, FaRegEye } from 'react-icons/fa6';
 import PostStat from './PostStat';
 import { Post } from '@/types/post.type';
 
-const PostStatList = ({ likes, views, comments }: Post) => {
+const PostStatList = (post: Post) => {
   return (
     <div className="flex justify-between px-4">
-      <PostStat iconComponent={<FiThumbsUp size={16} />} stat={likes} />
-      <PostStat
+      <PostStat iconComponent={<FiThumbsUp size={16} />} stat={post.likes} />
+      {/* <PostStat
         iconComponent={<FaRegComment size={16} />}
-        stat={comments.length}
-      />
-      <PostStat iconComponent={<FaRegEye size={16} />} stat={views} />
+        stat={post.c}
+      /> */}
+      <PostStat iconComponent={<FaRegEye size={16} />} stat={post.hit} />
       <PostStat iconComponent={<FiShare size={16} />} />
     </div>
   );

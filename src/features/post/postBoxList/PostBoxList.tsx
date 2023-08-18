@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const PostBoxList = () => {
   const { ref, inView } = useInView();
-  const fetchPostPage = async ({ pageParam = 0 }) => {
+  const fetchPostPage = async ({ pageParam = 1 }) => {
     console.log('fetch', pageParam);
     const response = await getPostPage(pageParam);
     return response;
@@ -21,7 +21,7 @@ const PostBoxList = () => {
     isFetching,
   } = useInfiniteQuery<PostPage>(['posts'], fetchPostPage, {
     getNextPageParam: lastPage => {
-      return lastPage.hasNext ? lastPage.pageId + 1 : undefined;
+      return lastPage.hasNextNumber ? lastPage.pageNumber + 1 : undefined;
     },
   });
 
@@ -34,7 +34,7 @@ const PostBoxList = () => {
   return (
     <div className="bg-white">
       {postPage?.pages.map(page =>
-        page.posts.map((post, index) => (
+        page.list.map((post, index) => (
           <Link to={`/post/${post.id}`} key={index}>
             <PostBox {...post} />
           </Link>
